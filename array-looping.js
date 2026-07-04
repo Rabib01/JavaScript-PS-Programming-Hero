@@ -101,9 +101,8 @@ const reversed = colors.toReversed();
   console.log("");
   console.log(`${name} scored ${marks}`);
   console.log(`${name1} scored ${marks1}`);
-  */ const init = function () {
   // Module 19
-
+  
   const addNumbers = function (...numbers) {
     let result = 0;
     numbers.forEach((number) => {
@@ -124,7 +123,7 @@ const reversed = colors.toReversed();
     console.log(`${result}`);
   };
   // Taake a nnumber.if odd multiply by 2. if even dividde by 2
-
+  
   const takeNumberFunction = function (number) {
     const result = number % 2 === 0 ? number / 2 : number * 2;
     console.log(result);
@@ -155,26 +154,105 @@ const reversed = colors.toReversed();
   takeNumberFunction(5);
   takeNumberFunction(0);
   takeNumberFunction(1);
-
+  
   // ..Write a function called count_zero() which will take a binary string (Binary string is a string which is consist of only 0 and 1) as parameter and count how many 0’s are there in that string./
-
+  
   console.log("");
   console.log("");
-
+  
   const takeBinaryToCountZeroes = function (binaryString) {
     let counter = 0;
     const numberOfZeroes = binaryString
-      .split("") // array of chars
-      .map((number) => +number) // type coersion to a single array with nubers
-      .forEach((number) => {
-        // count the number of zeroes
-        if (number === 0) {
-          counter++;
-        }
-      });
+    .split("") // array of chars
+    .map((number) => +number) // type coersion to a single array with nubers
+    .forEach((number) => {
+      // count the number of zeroes
+      if (number === 0) {
+        counter++;
+      }
+    });
     console.log(counter);
   };
   takeBinaryToCountZeroes("1000101000101");
+  console.log("");
+  console.log("");
+  */ const init = function () {
+  console.log("");
+  console.log("module - 21");
+  console.log("");
+  console.log("");
+
+  // convert inch to feet and miles to kilometer
+  const inch2Feet = function (number) {
+    const remainderInch = number % 12;
+    const feet = Math.floor(number / 12);
+    console.log(`${feet} feet ${remainderInch} inches`);
+  };
+  inch2Feet(70);
+
+  //miles to kilometer
+  const miles2Kilometer = function (number) {
+    const kilometers = (number * 1.60934).toFixed(2);
+    return kilometers;
+  };
+
+  console.log(`${miles2Kilometer(25)} kilometers`);
+
+  // leap year
+  /**
+   * Those years that are !divisible by 100, if the year is divisible by 4
+   * Years that are both divisble by 100 and 400
+   *
+   */
+  const leapYear = function (year) {
+    if (year % 4 === 0 && year % 100 !== 0) {
+      return true;
+    }
+    if (year % 100 === 0 && year % 400 === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  // average of oddnumbers in an array
+  const array = [42, 13, 58, 65, 81];
+
+  const averageOddNumbers = function (number) {
+    let counter = 0;
+    let sum = 0;
+    array.map((element) => {
+      if (element % 2 === 1) {
+        sum += element;
+        counter++;
+      }
+    });
+    console.log(`The sum is ${sum} and average is ${sum / counter}`);
+  };
+
+  averageOddNumbers([42, 13, 58, 65, 81]);
+
+  const removeDuplicate = function (array) {
+    const uniqueArray = [...new Set(array)];
+    console.log(uniqueArray);
+    // doing `${uniqueArray}` converts the entire thing into a string
+  };
+
+  removeDuplicate([1, 2, 3, 3, 4, 4, 4, 5]);
+
+  const bestRandomNumberGenerator = function (min, max) {
+    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    console.log(randomNumber);
+  };
+  bestRandomNumberGenerator(30, 32);
+
+  // swapping without temporary variables
+  let x = 5,
+    y = 7;
+  [x, y] = [y, x];
+  console.log(x, y);
+
+  // end
 
   //-End
 };
