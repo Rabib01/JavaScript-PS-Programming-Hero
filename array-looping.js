@@ -176,12 +176,13 @@ const reversed = colors.toReversed();
   takeBinaryToCountZeroes("1000101000101");
   console.log("");
   console.log("");
-  */ const init = function () {
+
+  // Module 20 Starts here 
   console.log("");
   console.log("module - 21");
   console.log("");
   console.log("");
-
+  
   // convert inch to feet and miles to kilometer
   const inch2Feet = function (number) {
     const remainderInch = number % 12;
@@ -189,7 +190,7 @@ const reversed = colors.toReversed();
     console.log(`${feet} feet ${remainderInch} inches`);
   };
   inch2Feet(70);
-
+  
   //miles to kilometer
   const miles2Kilometer = function (number) {
     const kilometers = (number * 1.60934).toFixed(2);
@@ -199,14 +200,14 @@ const reversed = colors.toReversed();
   console.log(`${miles2Kilometer(25)} kilometers`);
 
   // leap year
-  /**
-   * Those years that are !divisible by 100, if the year is divisible by 4
-   * Years that are both divisble by 100 and 400
-   *
-   */
-  const leapYear = function (year) {
-    if (year % 4 === 0 && year % 100 !== 0) {
-      return true;
+  
+   //Those years that are !divisible by 100, if the year is divisible by 4
+   //Years that are both divisble by 100 and 400
+  //
+  
+ const leapYear = function (year) {
+   if (year % 4 === 0 && year % 100 !== 0) {
+     return true;
     }
     if (year % 100 === 0 && year % 400 === 0) {
       return true;
@@ -217,7 +218,7 @@ const reversed = colors.toReversed();
 
   // average of oddnumbers in an array
   const array = [42, 13, 58, 65, 81];
-
+  
   const averageOddNumbers = function (number) {
     let counter = 0;
     let sum = 0;
@@ -229,7 +230,7 @@ const reversed = colors.toReversed();
     });
     console.log(`The sum is ${sum} and average is ${sum / counter}`);
   };
-
+  
   averageOddNumbers([42, 13, 58, 65, 81]);
 
   const removeDuplicate = function (array) {
@@ -237,20 +238,74 @@ const reversed = colors.toReversed();
     console.log(uniqueArray);
     // doing `${uniqueArray}` converts the entire thing into a string
   };
-
+  
   removeDuplicate([1, 2, 3, 3, 4, 4, 4, 5]);
-
+  
   const bestRandomNumberGenerator = function (min, max) {
     const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
     console.log(randomNumber);
   };
   bestRandomNumberGenerator(30, 32);
-
+  
   // swapping without temporary variables
   let x = 5,
-    y = 7;
+  y = 7;
   [x, y] = [y, x];
   console.log(x, y);
+  //  Module 20 ends here 
+  */ const init = function () {
+  // Module 21 starts here
+
+  const maxNumberFunction = function (...numbers) {
+    // using math.max
+    const maximum = Math.max(...numbers);
+    console.log(maximum);
+
+    // deep copy of array
+    const arrayDeepCopy = JSON.parse(JSON.stringify(numbers));
+    console.log(arrayDeepCopy);
+
+    // using ascending sort
+    const sort = numbers.sort((a, b) => a - b).pop();
+    console.log(sort);
+
+    //using stupid logic -1 [10,2,30,5] compares10 with 9
+    // let maxNumber = 0;
+    // arrayDeepCopy.forEach((element, i, arr) => {
+    //   if (arr[i] > arr[i] - 1) {
+    //     maxNumber = element;
+    //   }
+    // });
+
+    // // using stupid logic 2 again compares 10 with 9
+    // arrayDeepCopy.forEach((element, i, arr) => {
+    //   if (element > element - 1) {
+    //     maxNumber = element;
+    //   }
+    // });
+
+    // // using stupid logic-3 compares 10[0] with 2[1] which is stupidest of all
+    // arrayDeepCopy.forEach((element, i, arr) => {
+    //   if (element[i] > element[i] - 1) {
+    //     maxNumber = element;
+    //   }
+    // });
+
+    // using advanced stupid logic. comparing the next element with the previousone [10, 8, 5] would give 8 as answer
+    arrayDeepCopy.forEach((element, i, arr) => {
+      if (arr[i + 1] > arr[i]) {
+        maxNumber = arr[i + 1];
+      }
+    });
+
+    console.log(maxNumber);
+
+    // if I wanted the sorted array
+    // const sort = numbers.sort((a, b) => a - b);
+  };
+
+  maxNumberFunction(21, 22, 21, 23, 29, 32, 22, 24, 55, 52, 21, 3);
+  // Module 21 ends here
 
   // end
 
