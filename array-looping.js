@@ -292,8 +292,20 @@ const reversed = colors.toReversed();
     // });
 
     // using advanced stupid logic. comparing the next element with the previousone [10, 8, 5] would give 8 as answer
+    // arrayDeepCopy.forEach((element, i, arr) => {
+    //   maxNumber = arr[i];
+    //   if (arr[i + 1] > arr[i]) {
+    //     maxNumber = arr[i + 1];
+    //   }
+    // });
+
+    // advanced stupid logic 2 : [1,2,3,4] gives undefined as last element is compared with arr.length, and 1 > 2 , 2 > 3, 3> 4
+    maxNumber = arrayDeepCopy[0];
     arrayDeepCopy.forEach((element, i, arr) => {
-      if (arr[i + 1] > arr[i]) {
+      if (arr[i] > arr[i + 1]) {
+        let temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
         maxNumber = arr[i + 1];
       }
     });
@@ -304,7 +316,13 @@ const reversed = colors.toReversed();
     // const sort = numbers.sort((a, b) => a - b);
   };
 
-  maxNumberFunction(21, 22, 21, 23, 29, 32, 22, 24, 55, 52, 21, 3);
+  maxNumberFunction(56, 22, 21, 23, 29, 32, 22, 24, 55, 52, 57, 53);
+  console.log("");
+  console.log("");
+  maxNumberFunction(1, 2, 3, 4);
+  // const array1 = [22, 23, 24];
+  // console.log(array1[-1]);
+
   // Module 21 ends here
 
   // end
