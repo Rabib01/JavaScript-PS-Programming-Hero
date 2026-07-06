@@ -401,9 +401,90 @@ const reversed = colors.toReversed();
     console.log(`lowest height is ${lowestHeight}`);
   };
   lowestHeightDetector(heights2);
+  console.log("");
+  console.log("");
 
   // Find the friend with the smallest name.
+  const names = ["rahim", "robin", "rafi", "ron", "rashed", "muhtasim"];
+  // console.log(`-------`);
+  // console.log(names[0].split("").length);
 
+  const subname = ["r", "a", "h", "i", "m"];
+  // console.log(subname.length);
+  // console.log("");
+
+  // console.log(names);
+
+  const smallestNameDetector = function (namesArray) {
+    // console.log(namesArray);
+    let smallestNameLength = namesArray[0].split("").length;
+    let smallestName = namesArray[0];
+    // console.log(smallestName);
+
+    namesArray.forEach((element, i, arr) => {
+      // console.log(arr[i].split("").length);
+      //if (arr[i].split("").length < smallestName) Basically comparing 3 < rafi when it came to ron's iteration
+
+      if (arr[i].split("").length < smallestNameLength) {
+        smallestName = arr[i];
+      }
+    });
+    console.log(`The smalles name is ${smallestName}'s name `);
+  };
+  smallestNameDetector(names);
+
+  // Your task is to calculate the total budget required to buy electronics:
+  // Write a JavaScript function named calculateElectronicsBudget that takes in the number of laptop, tablets, and mobile and returns the total money required.
+
+  // Task 3 and 4 is almost similar and so I will do task 4 instead
+  //  You are given an array of phone objects, each containing information about the model, brand, and price. Your task is to write a JavaScript function named findAveragePhonePrice that takes this array as input and returns the average price of phone.\
+
+  const mobiles = [
+    { model: "PhoneA", brand: "Iphone", price: 95000 },
+    { model: "PhoneB", brand: "Samsung", price: 40000 },
+    { model: "PhoneC", brand: "Oppo", price: 26000 },
+    { model: "PhoneD", brand: "Nokia", price: 35000 },
+    { model: "PhoneE", brand: "Iphone", price: 105000 },
+    { model: "PhoneF", brand: "HTC", price: 48000 },
+  ];
+
+  const returnAveragePhonePrice = function (array) {
+    console.log(array);
+    let average = 0;
+    let count = 0;
+    let totalPrice = 0;
+
+    mobiles.forEach((ele, i, arr) => {
+      totalPrice += arr[i].price;
+      count++;
+    });
+    average = totalPrice / count;
+    console.log(average.toFixed(2));
+  };
+
+  returnAveragePhonePrice(mobiles);
+  console.log("");
+  console.log("");
+
+  // For each employee their current salary is calculated by multiplying yearly increment with experience then adding the result to the starting salary. Now calculate is the total salary has to be provided by the company in a month.
+  const employees = [
+    { name: "shahin", experience: 5, starting: 20000, increment: 5000 },
+    { name: "shihab", experience: 3, starting: 15000, increment: 7000 },
+    { name: "shikot", experience: 9, starting: 30000, increment: 1000 },
+    { name: "shohel", experience: 0, starting: 29000, increment: 4000 },
+  ];
+  const totalSalaryToBeProvidedByTheCompany = function (employeesArray) {
+    // (yearlyIncrement * experience ) + startingSalart
+    let totalSalartPayable = 0;
+    employeesArray.forEach((ele, i, arr) => {
+      totalSalartPayable +=
+        arr[i].increment * arr[i].experience + arr[i].starting;
+    });
+    console.log(totalSalartPayable);
+  };
+  totalSalaryToBeProvidedByTheCompany(employees);
+
+  // bad baki assignment. Banglamathar upore diye jautese
   // Module 21 ends here
 
   // end
