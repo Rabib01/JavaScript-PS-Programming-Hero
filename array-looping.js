@@ -259,11 +259,11 @@ const reversed = colors.toReversed();
   const maxNumberFunction = function (...numbers) {
     // using math.max
     const maximum = Math.max(...numbers);
-    console.log(maximum);
+    // console.log(maximum);
 
     // deep copy of array
     const arrayDeepCopy = JSON.parse(JSON.stringify(numbers));
-    console.log(arrayDeepCopy);
+    // console.log(arrayDeepCopy);
 
     // using ascending sort
     const sort = numbers.sort((a, b) => a - b).pop();
@@ -300,6 +300,7 @@ const reversed = colors.toReversed();
     // });
 
     // advanced stupid logic 2 : [1,2,3,4] gives undefined as last element is compared with arr.length, and 1 > 2 , 2 > 3, 3> 4
+    // will try to solve this later
     maxNumber = arrayDeepCopy[0];
     arrayDeepCopy.forEach((element, i, arr) => {
       if (arr[i] > arr[i + 1]) {
@@ -307,6 +308,13 @@ const reversed = colors.toReversed();
         arr[i + 1] = arr[i];
         arr[i] = temp;
         maxNumber = arr[i + 1];
+      } else {
+        if (arr[i + 1] > arr[i]) {
+          let temp = arr[i];
+          arr[i + 1] = arr[i];
+          arr[i] = temp;
+          maxNumber = arr[i + 1];
+        }
       }
     });
 
@@ -316,12 +324,85 @@ const reversed = colors.toReversed();
     // const sort = numbers.sort((a, b) => a - b);
   };
 
-  maxNumberFunction(56, 22, 21, 23, 29, 32, 22, 24, 55, 52, 57, 53);
-  console.log("");
-  console.log("");
-  maxNumberFunction(1, 2, 3, 4);
+  // maxNumberFunction(56, 22, 21, 23, 29, 32, 22, 24, 55, 52, 57, 53);
+  // console.log("");
+  // console.log("");
+  // maxNumberFunction(1, 2, 3, 4);
   // const array1 = [22, 23, 24];
   // console.log(array1[-1]);
+
+  const phones = [
+    { brand: "samsung", price: 21000, color: "black", quantity: 5 },
+    { brand: "xiaomi", price: 12000, color: "black", quantity: 3 },
+    { brand: "iPhone", price: 210000, color: "black", quantity: 4 },
+    { brand: "pixel", price: 34000, color: "black", quantity: 2 },
+    { brand: "nothing", price: 32000, color: "black", quantity: 1 },
+  ];
+
+  const findTheCheapestPhoneFunction = function (array) {
+    let lowestPrice = array[0].price;
+    let brand = array[0].brand;
+    // console.log(lowestPrice);
+
+    array.forEach((element, i, arr) => {
+      // console.log(element, i, arr);
+      if (arr[i].price < array[0].price) {
+        lowestPrice = arr[i].price;
+        brand = arr[i].brand;
+      }
+    });
+    console.log(
+      `The cheapest phone is ${lowestPrice} and the brand is ${brand}`,
+    );
+  };
+  const findTheExpensicePhoneFunction = function (array) {
+    let highestPrice = array[0].price;
+    let brand = array[0].brand;
+    // console.log(highestPrice);
+
+    array.forEach((element, i, arr) => {
+      // console.log(element, i, arr);
+      if (arr[i].price > array[0].price) {
+        highestPrice = arr[i].price;
+        brand = arr[i].brand;
+      }
+    });
+    console.log(
+      `The cheapest phone is ${highestPrice} and the brand is ${brand}`,
+    );
+  };
+
+  const findTheTotalInCart = function (array) {
+    let sum = 0;
+    console.log(array, sum);
+    array.forEach((element, i, arr) => {
+      console.log(element, i, arr);
+      sum += arr[i].price * arr[i].quantity;
+    });
+    console.log(`The total expense for this shopping cart is : ${sum}`);
+  };
+
+  findTheCheapestPhoneFunction(phones);
+  findTheExpensicePhoneFunction(phones);
+  findTheTotalInCart(phones);
+
+  // Problem tasks:
+  //https://github.com/ProgrammingHero1/js-problems-part2-practice-tasks
+
+  //Find the lowest number in the array below.
+  const heights2 = [167, 190, 20, 165, 137];
+  const lowestHeightDetector = function (array) {
+    let lowestHeight = array[0];
+    heights2.forEach((element, i, arr) => {
+      if (arr[i] < lowestHeight) {
+        lowestHeight = arr[i];
+      }
+    });
+    console.log(`lowest height is ${lowestHeight}`);
+  };
+  lowestHeightDetector(heights2);
+
+  // Find the friend with the smallest name.
 
   // Module 21 ends here
 
